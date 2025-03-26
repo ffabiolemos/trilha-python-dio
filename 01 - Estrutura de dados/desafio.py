@@ -51,11 +51,15 @@ def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
 
     return saldo, extrato
 
+from datetime import datetime
 
 def exibir_extrato(saldo, /, *, extrato):
+    agora = datetime.now()
+    horario_formatado = agora.strftime("%d/%m/%Y %H:%M:%S")
     print("\n================ EXTRATO ================")
+    print(f"Data e hora: {horario_formatado}")
     print("Não foram realizadas movimentações." if not extrato else extrato)
-    print(f"\nSaldo:\t\tR$ {saldo:.2f}")
+    print(f"\nSaldo:\t\tR$ {saldo:.2f} ")
     print("==========================================")
 
 
